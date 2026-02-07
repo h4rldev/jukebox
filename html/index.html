@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>h4rl's jukebox!</title>
+		<link href="./styles/styles.css" rel="stylesheet">
+		<link rel="icon" href="./assets/imissyou.webp" type="image/webp">
+		<style></style>
+
+		<script src="./index.js"></script>
+	</head>
+	<body class="bg-mantle text-text">
+		<header class="py-5">
+			<div class="flex flex-row gap-3 justify-center items-center">
+				<img
+					class="p-1 rounded-full border-2 border-dashed transition-all duration-100 ease-in-out animate-reverse-spin border-accent w-22 h-22"
+					src="./assets/imissyou.webp"
+					alt="imissyou"
+				>
+				<h1 class="text-2xl font-arimo-bold">h4rl's jukebox!</h1>
+			</div>
+		</header>
+
+		<main class="mx-auto max-w-200">
+			<section class="flex relative flex-col justify-center items-center pb-40">
+				<ul
+					id="theme-dropdown-menu"
+					class="absolute top-10 w-64 rounded-xl bg-base fade-element"
+				>
+					<li>
+						<button
+							type="button"
+							class="py-2 w-full rounded-tl-xl rounded-tr-xl border-t-2 border-b-2 border-solid transition-colors duration-300 ease-in-out cursor-pointer latte text-accent bg-base border-crust hover:bg-crust"
+							id="catppuccin-latte"
+						>
+							Catppuccin Latte
+						</button>
+					</li>
+					<li>
+						<button
+							type="button"
+							class="py-2 w-full border-r-2 border-l-2 border-solid transition-colors duration-300 ease-in-out cursor-pointer frappe text-accent bg-base border-mantle hover:bg-mantle"
+							id="catppuccin-frappe"
+						>
+							Catppuccin Frappe
+						</button>
+					</li>
+					<li>
+						<button
+							type="button"
+							class="py-2 w-full border-r-2 border-l-2 border-solid transition-colors duration-300 ease-in-out cursor-pointer macchiato text-accent bg-base border-mantle hover:bg-mantle"
+							id="catppuccin-macchiato"
+						>
+							Catppuccin Macchiato
+						</button>
+					</li>
+					<li>
+						<button
+							type="button"
+							class="py-2 w-full rounded-br-xl rounded-bl-xl border-r-2 border-b-2 border-l-2 border-solid transition-colors duration-300 ease-in-out cursor-pointer mocha text-accent bg-base border-mantle hover:bg-mantle"
+							id="catppuccin-mocha"
+						>
+							Catppuccin Mocha
+						</button>
+					</li>
+				</ul>
+				<button
+					id="theme-dropdown"
+					class="py-1 px-2 w-64 rounded-2xl cursor-pointer outline-4 outline-transparent outline-dashed bg-accent hover:outline-crust"
+					type="button"
+					aria-haspopup="true"
+					aria-expanded="false"
+				></button>
+				<small>Choose ur theme c:</small>
+			</section>
+			<section>
+				<div id="iframe-container"></div>
+			</section>
+
+			<p class="text-2xl text-center bg-sapphire">hi</p>
+		</main>
+
+		<footer></footer>
+	</body>
+</html>

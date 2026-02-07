@@ -1,0 +1,20 @@
+{
+	"name": "h4rl-jukebox",
+	"module": "index.ts",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"build": "bun run build.ts"
+	},
+	"devDependencies": {
+		"@tailwindcss/cli": "^4.1.18",
+		"@tailwindcss/language-server": "^0.14.29",
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"dependencies": {
+		"tailwindcss": "^4.1.18"
+	}
+}

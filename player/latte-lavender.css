@@ -1,0 +1,92 @@
+/*
+ * This is the deobfuscated css style for the Catppuccin Latte Lavender theme for the Radio Player.
+ *
+ * It's just here just for show so you dont have to base64 decode the custom_css parts.
+ */
+
+:root {
+	--accent-color: #7287fd;
+	--text-color: #4c4f69;
+	--hr-color: #dce0e8;
+	--intermediate-color: #dce0e8;
+	--bg-color: #eff1f5;
+}
+
+.dropdown-item,
+svg {
+	color: var(--text-color);
+}
+
+hr {
+	color: var(--hr-color);
+	height: 1px;
+	border: 1px solid;
+	width: 91%;
+	margin: 9%;
+}
+
+.radio-player-widget {
+	padding: 20px;
+}
+
+.radio-control-volume {
+	margin: 0 0 0 20%;
+}
+
+.radio-control-play-button,
+.radio-control-play-button svg {
+	width: 40px;
+	height: 40px;
+}
+
+.progress {
+	background-color: var(--text-color);
+}
+
+.text-muted,
+.text-secondary {
+	color: var(--text-color) !important;
+}
+
+.form-range::-webkit-slider-runnable-track {
+	margin-top: 1px;
+	background-color: var(--accent-color);
+}
+
+.form-range::-moz-range-track {
+	margin-top: 1px;
+	background-color: var(--accent-color);
+}
+
+.dropdown-toggle {
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 100px;
+	color: var(--bg-color);
+	background: var(--text-color);
+	box-shadow: none !important;
+}
+
+.btn-check:checked + .btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+.dropdown-menu,
+.dropdown-toggle:focus-visible,
+.dropdown-toggle:hover,
+:not(.btn-check) + .btn:active {
+	background: var(--bg-color) !important;
+	color: var(--text-color) !important;
+	box-shadow: none !important;
+}
+
+.album_art {
+	border-radius: 100px !important;
+	animation: 8s linear infinite spin;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
