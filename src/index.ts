@@ -200,9 +200,6 @@ const handle_input_easter_egg = (_event: KeyboardEvent): void => {
 
 	key_sequence.push(event.key.toLowerCase());
 	snapshot = key_sequence.slice(-wanted_key_sequence.length);
-	console.log("snapshot", snapshot);
-	console.log("wanted_key_sequence", wanted_key_sequence);
-	console.log("reverse_key_sequence", reverse_key_sequence);
 
 	if (
 		snapshot.length === wanted_key_sequence.length &&
