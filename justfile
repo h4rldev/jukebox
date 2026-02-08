@@ -19,10 +19,10 @@ dist:
     for IMG_FILE in ${IMG_FILES[@]}; do
         FILENAME=$(basename $IMG_FILE)
 
-        if [[ -f "./dist/assets/${FILENAME%.*}.webp" ]]; then
+        if [[ -f "./assets/${FILENAME%.*}.webp" ]]; then
             continue
         fi
-        magick mogrify -format webp -quality 80 -path ./dist/assets/ $IMG_FILE
+        magick mogrify -format webp -quality 80 -path ./assets/ $IMG_FILE
     done
 
     bun run build
@@ -42,5 +42,19 @@ tailwind watch="true":
     fi
 
 preview:
+    #!/usr/bin/env bash
+    TEMP=$(mktemp -d)
+    echo "$TEMP"
+
+    echo "hosts:
+      "dev":
+        listen:
+          port: 8008
+        paths:
+          "/":
+            file.dir: ./dist
+    http2-reprioritize-blocking-assets: ON
+    " > $TEMP/h2o.yml
+
     just build
-    brave ./dist/index.html
+    brave http://localhost:8008 && h2o -c $TEMP/h2o.yml

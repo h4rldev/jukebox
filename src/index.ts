@@ -1,5 +1,6 @@
-const default_theme = "catppuccin-macchiato";
+import { oneko } from "./oneko.ts";
 
+const default_theme = "catppuccin-macchiato";
 const theme_options = {
 	"catppuccin-latte": "Catppuccin Latte",
 	"catppuccin-frappe": "Catppuccin Frappe",
@@ -54,6 +55,8 @@ let button_macchiato = null;
 let dropdown_open = false;
 let current_theme = default_theme;
 
+const key_sequence: string[] = [];
+
 const close_dropdown = (): void => {
 	theme_dropdown.ariaExpanded = "false";
 	// theme_dropdown_menu.style.display = "none";
@@ -86,11 +89,13 @@ const handle_dropdown_click = (_event: MouseEvent): void => {
 const set_embed = (): void => {
 	const embed = embed_options[current_theme];
 
-	iframe_container.innerHTML = `<iframe src="https://radio.h4rl.dev/public/mambo/embed?primary_color=${embed.primary_color}&bg_color=${embed.bg_color}&text_color=${embed.text_color}&volume=50&rounded=1&continuous=1&custom_css=${embed.custom_css}" frameborder="0" allowtransparency="true" style="width: 100%; min-height: 150px; height: 200px; border: 0;"></iframe>`;
+	iframe_container.innerHTML = `<iframe src="https://radio.h4rl.dev/public/mambo/embed?primary_color=${embed.primary_color}&bg_color=${embed.bg_color}&text_color=${embed.text_color}&volume=50&continuous=1&custom_css=${embed.custom_css}" frameborder="0" allowtransparency="true" style="width: 100%; min-height: 150px; height: 160px; border: 0;"></iframe>`;
 };
 
 const apply_theme = (): void => {
 	const htmlelem = document.documentElement;
+	const left_banner = document.getElementById("left-banner");
+	const right_banner = document.getElementById("right-banner");
 
 	theme_dropdown.innerText = theme_options[current_theme];
 	if (current_theme === "catppuccin-latte") {
@@ -99,6 +104,18 @@ const apply_theme = (): void => {
 	} else {
 		theme_dropdown.classList.remove("text-text");
 		theme_dropdown.classList.add("text-crust");
+	}
+
+	if (current_theme === "catppuccin-latte") {
+		left_banner.classList.remove("invert-100");
+		left_banner.classList.add("invert-0");
+		right_banner.classList.remove("invert-100");
+		right_banner.classList.add("invert-0");
+	} else {
+		left_banner.classList.add("invert-100");
+		left_banner.classList.remove("invert-0");
+		right_banner.classList.add("invert-100");
+		right_banner.classList.remove("invert-0");
 	}
 
 	switch (current_theme) {
@@ -126,6 +143,33 @@ const apply_theme = (): void => {
 	set_embed();
 };
 
+const easter_egg = (): void => {
+	const imissyou_source = document.getElementById("imissyou").src;
+	const left_banner = document.getElementById("left-banner");
+	const right_banner = document.getElementById("right-banner");
+
+	const htmlelem = document.getElementsByTagName("body");
+
+	htmlelem[0].style.backgroundImage = `url(${imissyou_source})`;
+	htmlelem[0].style.backgroundSize = "cover";
+	htmlelem[0].style.backgroundPosition = "center";
+	left_banner.classList.add("hidden");
+	right_banner.classList.add("hidden");
+};
+
+const revert_easter_egg = (): void => {
+	const htmlelem = document.getElementsByTagName("body");
+	const left_banner = document.getElementById("left-banner");
+	const right_banner = document.getElementById("right-banner");
+
+	htmlelem[0].style.backgroundImage = "none";
+	htmlelem[0].style.backgroundSize = "auto";
+	htmlelem[0].style.backgroundPosition = "center";
+
+	left_banner.classList.remove("hidden");
+	right_banner.classList.remove("hidden");
+};
+
 const handle_theme_click = (
 	_event: MouseEvent,
 	selected_theme: string,
@@ -146,6 +190,33 @@ const handle_theme_click = (
 	localStorage.setItem("theme", current_theme);
 
 	apply_theme();
+};
+
+const handle_input_easter_egg = (_event: KeyboardEvent): void => {
+	const wanted_key_sequence = ["l", "e", "o"];
+	const reverse_key_sequence = wanted_key_sequence.toReversed();
+
+	let snapshot = null;
+
+	key_sequence.push(event.key.toLowerCase());
+	snapshot = key_sequence.slice(-wanted_key_sequence.length);
+	console.log("snapshot", snapshot);
+	console.log("wanted_key_sequence", wanted_key_sequence);
+	console.log("reverse_key_sequence", reverse_key_sequence);
+
+	if (
+		snapshot.length === wanted_key_sequence.length &&
+		snapshot.every((val, i) => val === wanted_key_sequence[i])
+	) {
+		easter_egg();
+	}
+
+	if (
+		snapshot.length === reverse_key_sequence.length &&
+		snapshot.every((val, i) => val === reverse_key_sequence[i])
+	) {
+		revert_easter_egg();
+	}
 };
 
 const init = (): void => {
@@ -177,5 +248,12 @@ const init = (): void => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+	const oneko_path = "/assets/oneko.webp";
+
 	init();
+	oneko(oneko_path);
+
+	document.addEventListener("keyup", (e: KeyboardEvent) => {
+		handle_input_easter_egg(e);
+	});
 });

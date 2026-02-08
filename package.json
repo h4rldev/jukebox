@@ -16,6 +16,7 @@
 		"typescript": "^5"
 	},
 	"dependencies": {
+		"jsnes": "^1.2.1",
 		"tailwindcss": "^4.1.18"
 	}
 }

@@ -4,63 +4,63 @@
 	font-family: "Arimo Nerd Font";
 	src:
 		local("Arimo Nerd Font"),
-		url("/assets/ArimoNerdFont-Regular.ttf") type("ttf");
+		url("../assets/ArimoNerdFont-Regular.ttf") type("ttf");
 }
 
 @font-face {
 	font-family: "Arimo Nerd Font Italic";
 	src:
 		local("Arimo Nerd Font Italic"),
-		url("/assets/ArimoNerdFont-Italic.ttf") type("ttf");
+		url("../assets/ArimoNerdFont-Italic.ttf") type("ttf");
 }
 
 @font-face {
 	font-family: "Arimo Nerd Font Bold";
 	src:
 		local("Arimo Nerd Font Bold"),
-		url("/assets/ArimoNerdFont-Bold.ttf") type("ttf");
+		url("../assets/ArimoNerdFont-Bold.ttf") type("ttf");
 }
 
 @font-face {
 	font-family: "Arimo Nerd Font Bold Italic";
 	src:
 		local("Arimo Nerd Font Bold Italic"),
-		url("/assets/ArimoNerdFont-BoldItalic.ttf") type("ttf");
+		url("../assets/ArimoNerdFont-BoldItalic.ttf") type("ttf");
 }
 
 @font-face {
 	font-family: "Arimo Nerd Font Propo";
 	src:
 		local("Arimo Nerd Font Propo"),
-		url("/assets/ArimoNerdFontPropo-Regular.ttf") type("ttf");
+		url("../assets/ArimoNerdFontPropo-Regular.ttf") type("ttf");
 }
 
 @font-face {
 	font-family: "Arimo Nerd Font Propo Italic";
 	src:
 		local("Arimo Nerd Font Propo Italic"),
-		url("/assets/ArimoNerdFontPropo-Italic.ttf") type("ttf");
+		url("../assets/ArimoNerdFontPropo-Italic.ttf") type("ttf");
 }
 
 @font-face {
 	font-family: "Arimo Nerd Font Propo Italic";
 	src:
 		local("Arimo Nerd Font Propo Italic"),
-		url("/assets/ArimoNerdFontPropo-Italic.ttf") type("ttf");
+		url("../assets/ArimoNerdFontPropo-Italic.ttf") type("ttf");
 }
 
 @font-face {
 	font-family: "Arimo Nerd Font Propo Bold";
 	src:
 		local("Arimo Nerd Font Propo Bold"),
-		url("/assets/ArimoNerdFontPropo-Bold.ttf") type("ttf");
+		url("../assets/ArimoNerdFontPropo-Bold.ttf") type("ttf");
 }
 
 @font-face {
 	font-family: "Arimo Nerd Font Propo Bold Italic";
 	src:
 		local("Arimo Nerd Font Propo Bold Italic"),
-		url("/assets/ArimoNerdFontPropo-BoldItalic.ttf") type("ttf");
+		url("../assets/ArimoNerdFontPropo-BoldItalic.ttf") type("ttf");
 }
 
 @theme {
@@ -181,14 +181,14 @@
 	--color-subtext1: #b8c0e0;
 	--color-subtext0: #a5adcb;
 	--color-overlay2: #939ab7;
-	--color-overlay1: #7f849c;
-	--color-overlay0: #6c7086;
-	--color-surface2: #585b70;
-	--color-surface1: #45475a;
-	--color-surface0: #313244;
-	--color-base: #1e1e2e;
-	--color-mantle: #181825;
-	--color-crust: #11111b;
+	--color-overlay1: #8087a2;
+	--color-overlay0: #6e738d;
+	--color-surface2: #5b6078;
+	--color-surface1: #494b68;
+	--color-surface0: #36384c;
+	--color-base: #24273a;
+	--color-mantle: #1e2030;
+	--color-crust: #181825;
 	--color-accent: var(--color-green);
 }
 

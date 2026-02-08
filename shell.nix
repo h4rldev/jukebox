@@ -12,6 +12,7 @@ with pkgs;
       rustywind
       watchexec
       actionlint
+      h2o
     ];
     shellHook = ''
       export PATH="./node_modules/.bin/:$PATH"
