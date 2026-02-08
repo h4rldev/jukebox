@@ -11,6 +11,7 @@ with pkgs;
       biome
       rustywind
       watchexec
+      actionlint
     ];
     shellHook = ''
       export PATH="./node_modules/.bin/:$PATH"

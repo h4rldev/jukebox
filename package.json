@@ -9,7 +9,8 @@
 	"devDependencies": {
 		"@tailwindcss/cli": "^4.1.18",
 		"@tailwindcss/language-server": "^0.14.29",
-		"@types/bun": "latest"
+		"@types/bun": "latest",
+		"gh-actions-language-server": "^0.0.3"
 	},
 	"peerDependencies": {
 		"typescript": "^5"
