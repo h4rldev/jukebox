@@ -16,7 +16,9 @@ jobs:
         uses: mfinelli/setup-imagemagick@v7
 
       - name: Setup ripgrep
-        run: apt install ripgrep
+        run: |
+          sudo apt update
+          sudo apt install ripgrep
 
       - name: Setup Just
         uses: extractions/setup-just@v3
