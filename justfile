@@ -4,17 +4,12 @@ set quiet := true
 default:
     just --list
 
-clean:
-    rm -fr dist
-
-dist:
+build:
     #!/usr/bin/env bash
     IMG_FILES=("")
     FILENAME=""
 
     IMG_FILES=$(rg --files ./assets/ -g '*.{png,jpg,jpeg,gif}')
-
-    mkdir -p ./dist/assets
 
     for IMG_FILE in ${IMG_FILES[@]}; do
         FILENAME=$(basename $IMG_FILE)
@@ -26,8 +21,6 @@ dist:
     done
 
     bun run build
-
-build: clean dist
 
 watch:
     watchexec -e ts,css,html just build
@@ -57,4 +50,4 @@ preview:
     " > $TEMP/h2o.yml
 
     just build
-    brave http://localhost:8008 && h2o -c $TEMP/h2o.yml
+    helium http://localhost:8008 && h2o -c $TEMP/h2o.yml
